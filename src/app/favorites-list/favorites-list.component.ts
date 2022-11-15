@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { CharacterFavoriteListService } from '../character-favorite-list.service';
+import { Character } from '../characters-list/Character';
 
 @Component({
   selector: 'app-favorites-list',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesListComponent implements OnInit {
 
-  constructor() { }
+  favoriteList$: Observable<Character[]>;
+  constructor(private list: CharacterFavoriteListService) { 
+    this.favoriteList$ = list.favoriteList.asObservable();
+  }
 
   ngOnInit(): void {
   }

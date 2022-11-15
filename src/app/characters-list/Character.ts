@@ -5,4 +5,5 @@ export interface Character{
     habilidad2:string;
     habilidad3:string;
     habilidad4:string;
+    clase:string;
 }

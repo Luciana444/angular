@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CharacterFavoriteListService } from '../character-favorite-list.service';
 import { Character } from './Character';
 
 @Component({
@@ -16,6 +17,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: IMPULSO CICLÓN',
     habilidad3:'C: NUBE EXPLOSIVA',
     habilidad4:'X: TORMENTA DE CUCHILLAS',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/raze.jpg',
@@ -24,6 +26,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: CARCASAS DE PINTURA',
     habilidad3:'C: BUMBOT',
     habilidad4:'X: TUMBADIVAS',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/Breach.jpg ',
@@ -32,6 +35,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: FALLA SÍSMICA',
     habilidad3:'C: RÉPLICA',
     habilidad4:'X: TRUENO RODANTE',
+    clase:'Iniciador',
   },
   {
     imagen:'../assets/img/omen.jpg',
@@ -40,6 +44,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: MANTO OSCURO',
     habilidad3:'C: PASO SOMBRÍO',
     habilidad4:'X: DESDE LAS SOMBRAS',
+    clase:'Controlador',
   },
   {
     imagen:'../assets/img/Brimstone.jpg',
@@ -48,6 +53,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: HUMO CELESTIAL',
     habilidad3:'C: BALIZA POTENCIADORA',
     habilidad4:'X: ATAQUE ORBITAL',
+    clase:'Controlador',
   },
   {
     imagen:'../assets/img/phoenix.jpg',
@@ -56,6 +62,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: MANITAS CALIENTES',
     habilidad3:'C: MURO ABRASADOR',
     habilidad4:'X: VA DE FUEGO',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/sage.jpg',
@@ -64,6 +71,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: ORBE CURATIVO',
     habilidad3:'C: ORBE DE BARRERA',
     habilidad4:'X: RESURRECCIÓN',
+    clase:'Centinela',
   },
   {
     imagen:'../assets/img/sova.jpg',
@@ -72,6 +80,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: PROYECTIL RASTREADOR',
     habilidad3:'C: DRON BÚHO',
     habilidad4:'X: FURIA DEL CAZADOR',
+    clase:'Iniciador',
   },
   {
     imagen:'../assets/img/viper.jpg',
@@ -80,6 +89,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: CORTINA TÓXICA',
     habilidad3:'C: MORDEDURA',
     habilidad4:'X: FOSA VIPÉREA',
+    clase:'Controlador',
   },
   {
     imagen:'../assets/img/cypher.jpg',
@@ -88,6 +98,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: CÁMARA ESPÍA',
     habilidad3:'C: CABLE TRAMPA',
     habilidad4:'X: ASALTO NEURAL',
+    clase:'Centinela',
   },
   {
     imagen:'../assets/img/reyna.jpg',
@@ -96,6 +107,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: DESECHAR',
     habilidad3:'C: LA MIRADA',
     habilidad4:'X: LA EMPERATRIZ',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/killjoy.jpg',
@@ -104,6 +116,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: TORRETA',
     habilidad3:'C: NANOPLAGA',
     habilidad4:'X: DISPOSITIVO INMOVILIZADOR',
+    clase:'Centinela',
   },
   {
     imagen:'../assets/img/skye.jpg',
@@ -112,6 +125,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: LUZ GUÍA',
     habilidad3:'C: REGENERACIÓN',
     habilidad4:'X: BUSCADORES',
+    clase:'Iniciador',
   },
   {
     imagen:'../assets/img/yoru.jpg',
@@ -120,6 +134,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: INFILTRACIÓN',
     habilidad3:'C - ENGAÑO',
     habilidad4:'X - CAMBIO DIMENSIONAL',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/astra.jpg',
@@ -128,6 +143,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: NEBULOSA',
     habilidad3:'C: POZO GRAVITACIONAL',
     habilidad4:'X: MODO ASTRAL/DIVISIÓN CÓSMICA',
+    clase:'Controlador',
   },
   {
     imagen:'../assets/img/kayo.jpg',
@@ -136,6 +152,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: PUNTO/CERO',
     habilidad3:'C: FRAG/MENTACIÓN',
     habilidad4:'X: NULL/CMD',
+    clase:'Iniciador',
   },
   {
     imagen:'../assets/img/chamber.jpg',
@@ -144,6 +161,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: RENDEZVOUS',
     habilidad3:'C: MARCA REGISTRADA',
     habilidad4:'X: TOUR DE FORCE',
+    clase:'Centinela',
   },
   {
     imagen:'../assets/img/neon.jpg',
@@ -152,6 +170,7 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: VELOCIDAD RELÁMPAGO',
     habilidad3:'C: CARRIL RÁPIDO',
     habilidad4:'X: POTENCIA MÁXIMA',
+    clase:'Duelista',
   },
   {
     imagen:'../assets/img/fade.jpg',
@@ -160,15 +179,17 @@ export class CharactersListComponent implements OnInit {
     habilidad2:'E: ATORMENTAR',
     habilidad3:'C: ACECHADORA',
     habilidad4:'X: ANOCHECER',
+    clase:'Iniciador',
   },
 ];
-  constructor() { }
+  constructor(private list: CharacterFavoriteListService) { 
+    
+  }
+
+  addToList(character: Character) : void {
+    this.list.addToList(character);
+  }
 
   ngOnInit(): void {
   }
-
-  aggregate(character: Character):void{
-    character.personaje;  
-  }
-
 }
