@@ -10,7 +10,7 @@ import { Character } from '../characters-list/Character';
 })
 export class FavoritesListComponent implements OnInit {
 
-  favoriteList$: Observable<Character[]>;
+  favoriteList$: Observable<Set<Character>>;
   constructor(private list: CharacterFavoriteListService) { 
     this.favoriteList$ = list.favoriteList.asObservable();
   }

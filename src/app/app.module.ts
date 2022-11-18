@@ -10,6 +10,7 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 import { CharactersHomeComponent } from './characters-home/characters-home.component';
 import { CharactersContacComponent } from './characters-contac/characters-contac.component';
 import { CharactersClassComponent } from './characters-class/characters-class.component';
+import { SearchCharacterComponent } from './search-character/search-character.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CharactersClassComponent } from './characters-class/characters-class.co
     FavoritesListComponent,
     CharactersHomeComponent,
     CharactersContacComponent,
-    CharactersClassComponent
+    CharactersClassComponent,
+    SearchCharacterComponent
   ],
   imports: [
     BrowserModule,

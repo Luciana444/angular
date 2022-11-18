@@ -7,18 +7,13 @@ import { Character } from './characters-list/Character';
 })
 export class CharacterFavoriteListService {
 
-  private _favoriteList:Character[] = [];
-  favoriteList: BehaviorSubject<Character[]> = new BehaviorSubject(this._favoriteList);
+  private _favoriteList:Set<Character> = new Set<Character>;
+  favoriteList: BehaviorSubject<Set<Character>> = new BehaviorSubject(this._favoriteList);
 
   constructor() { }
 
   addToList(character: Character){
-    let agent = this._favoriteList.find((valor1) => valor1.personaje == character.personaje);
-    if(!agent){
-      this._favoriteList.push(character);
-    }else{
-
-    }
+    this._favoriteList.add(character);
     this.favoriteList.next(this._favoriteList);
   }
 
