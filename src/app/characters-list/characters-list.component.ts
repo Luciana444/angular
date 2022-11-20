@@ -21,6 +21,12 @@ export class CharactersListComponent implements OnInit {
     this.list.addToList(character);
   }
 
+  filterCharacters(text: string){
+    this.characterDataService.getCharacters(text)
+    .subscribe(characters => this.characters = characters);
+  }
+
+
   ngOnInit(): void {
     this.characterDataService.getAll()
     .subscribe(characters => this.characters = characters);

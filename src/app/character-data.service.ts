@@ -17,4 +17,8 @@ export class CharacterDataService {
   public getAll(): Observable<Character[]> {
     return this.Http.get<Character[]>(url);
   }
+
+  public getCharacters(text: string): Observable<Character[]> {
+    return this.Http.get<Character[]>(`${url}?personaje=${text}`);
+  }
 }

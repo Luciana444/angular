@@ -1,3 +1,28 @@
-main{
-    background-color: rgb(199, 57, 57);
+.main_listas{
+    display: flex;
+    justify-content: space-around;
 }
+
+.contenedor_listas{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    height: 32em;
+}
+
+.duelista{
+    background-color:rgb(232, 74, 74);
+}
+
+.iniciador{
+    background-color:rgb(48, 185, 200);
+}
+
+.controlador{
+    background-color:rgb(48, 200, 132);
+}
+
+.centinela{
+    background-color:rgb(215, 129, 230);
+}
+

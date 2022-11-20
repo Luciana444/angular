@@ -7,13 +7,16 @@ import { Character } from './characters-list/Character';
 })
 export class CharacterFavoriteListService {
 
-  private _favoriteList:Set<Character> = new Set<Character>;
-  favoriteList: BehaviorSubject<Set<Character>> = new BehaviorSubject(this._favoriteList);
+  private _favoriteList:Character[] = [];
+  favoriteList: BehaviorSubject<Character[]> = new BehaviorSubject(this._favoriteList);
 
   constructor() { }
 
   addToList(character: Character){
-    this._favoriteList.add(character);
+      const favouriteCharactersNames = this._favoriteList.map((character) => character.personaje);
+    if(!favouriteCharactersNames.includes(character.personaje)){
+      this._favoriteList.push(character);
+    }
     this.favoriteList.next(this._favoriteList);
   }
 
